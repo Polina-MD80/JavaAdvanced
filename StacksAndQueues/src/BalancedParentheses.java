@@ -23,7 +23,6 @@ class BalancedParentheses {
             stack.push (parentheses.charAt (i));
         }
         while (!stack.isEmpty ()&&!queue.isEmpty ()) {
-
             switch (stack.pop ()) {
                 case ')':
                     if (queue.poll () != '(') {
