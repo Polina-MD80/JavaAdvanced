@@ -29,6 +29,7 @@ class Parentheses2 {
                 }
             }
         }
+
         if (!isBalanced) {
             System.out.println ("NO");
         } else {
