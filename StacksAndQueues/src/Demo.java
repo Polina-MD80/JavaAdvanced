@@ -1,4 +1,6 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public
@@ -21,6 +23,10 @@ class Demo {
         System.out.println (stack.size ());*/
         while (!stack.isEmpty ()){
             System.out.println (stack.pop ());
+
         }
+        int[] arr = new int[2];
+        System.out.println (arr[0]);
+
     }
 }
