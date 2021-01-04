@@ -1,9 +1,6 @@
 package OpinionPoll;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public
 class Main {
@@ -20,6 +17,9 @@ class Main {
             Person person = new Person (info[0],Integer.parseInt (info[1]));
             people.add (person);
         }
+        //people.sort (Comparator.comparing (Person::getName));
+
+
         people.stream ().filter (person -> person.getAge ()>30)
                 .sorted ((f,s)->f.getName ().compareTo (s.getName ()))
                 .forEach (System.out::println);
