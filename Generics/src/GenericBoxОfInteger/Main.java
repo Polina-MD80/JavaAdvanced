@@ -1,6 +1,5 @@
 package GenericBoxОfInteger;
 
-import GenericBox.Box;
 
 import java.util.Scanner;
 
