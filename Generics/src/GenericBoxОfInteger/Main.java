@@ -15,7 +15,7 @@ class Main {
         Box<Integer> box = new Box<> ();
 
         for (int i = 0; i < n; i++) {
-            int integer = Integer.parseInt (scanner.nextLine ());
+            Integer integer = Integer.parseInt (scanner.nextLine ());
             box.addElement (integer);
         }
         System.out.println (box);
