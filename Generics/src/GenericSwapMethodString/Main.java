@@ -1,6 +1,5 @@
 package GenericSwapMethodString;
 
-import GenericBox.Box;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -14,7 +13,7 @@ class Main {
 
         int n = Integer.parseInt (scanner.nextLine ());
 
-        GenericBox.Box<String> box = new Box<> ();
+        Box<String> box = new Box<> ();
 
         for (int i = 0; i < n; i++) {
             String string = scanner.nextLine ();
@@ -22,7 +21,7 @@ class Main {
         }
         int[] command = Arrays.stream(scanner.nextLine ().split ("\\s+")).mapToInt (Integer::parseInt).toArray ();
 
-
+        box.swap(command);
         System.out.println (box);
     }
 }
