@@ -2,6 +2,7 @@ package GenericSwapMethodInteger;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public
@@ -17,9 +18,18 @@ class Box<T>{
     }
 
     public void swap(int[] command){
+        validateIndexes(command);
         T tempo = this.elements.get (command[0]);
         this.elements.set (command[0], this.elements.get (command[1]));
         this.elements.set (command[1],tempo);
+       // Collections.swap (this.elements,command[0],command[1]);
+    }
+
+    private
+    void validateIndexes (int[] command) {
+        if (command[0]<0||command[0]>=this.elements.size ()||command[1]<0||command[1]>=this.elements.size ()){
+            throw new IndexOutOfBoundsException ("Invalid Index");
+        }
     }
 
     @Override
