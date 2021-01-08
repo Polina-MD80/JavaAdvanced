@@ -5,7 +5,7 @@ import java.util.List;
 
 public
 class Box<T>{
-    private
+    private final
     List<T> elements;
 
     public Box(){
