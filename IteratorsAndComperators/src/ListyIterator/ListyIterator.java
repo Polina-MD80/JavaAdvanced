@@ -41,6 +41,19 @@ class ListyIterator implements Iterable<String> {
     @Override
     public
     Iterator<String> iterator () {
-        return null;
+        return new Iterator<String> () {
+            private int index = 0;
+            @Override
+            public
+            boolean hasNext () {
+                    return this.index <= data.size ()-1;
+            }
+
+            @Override
+            public
+            String next () {
+                return data.get (index++);
+            }
+        };
     }
 }

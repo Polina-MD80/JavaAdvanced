@@ -28,6 +28,9 @@ class Main {
                 case "HasNext":
                     System.out.println (listyIterator.hasNext ());
                     break;
+                case "PrintAll":
+                    listyIterator.forEach (s-> System.out.print (s+ " "));
+                    System.out.println ();
             }
 
             command = scanner.nextLine ();
