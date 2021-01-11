@@ -16,7 +16,7 @@ class Lake implements Iterable<Integer> {
     Iterator<Integer> iterator () {
         return new Iterator<Integer> () {
             private int index;
-            private int lastEvenIndex = stoneNumbers.length % 2 == 0 ? stoneNumbers.length - 2 : stoneNumbers.length - 1;
+            private final int lastEvenIndex = stoneNumbers.length % 2 == 0 ? stoneNumbers.length - 2 : stoneNumbers.length - 1;
 
             @Override
             public
