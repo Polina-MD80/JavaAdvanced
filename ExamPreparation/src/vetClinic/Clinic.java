@@ -59,6 +59,6 @@ class Clinic  {
         for (Pet pet : this.data) {
             sb.append (String.format ("%s %s%n", pet.getName (),pet.getOwner ()));
         }
-        return sb.toString ();
+        return sb.toString ().trim ();
     }
 }
