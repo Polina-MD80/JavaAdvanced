@@ -9,28 +9,28 @@ import java.util.List;
 public
 class Clinic  {
     private int capacity;
-    private List<Pet> pets;
+    private List<Pet> data;
 
     public
     Clinic (int capacity) {
         this.capacity = capacity;
-        pets = new ArrayList<> ();
+        data = new ArrayList<> ();
     }
 
     public
     void add (Pet pet) {
-        if (!this.pets.contains (pet)) {
-            if (capacity > this.pets.size ()) {
-                this.pets.add (pet);
+        if (!this.data.contains (pet)) {
+            if (capacity > this.data.size ()) {
+                this.data.add (pet);
             }
         }
     }
 
     public
     boolean remove (String name) {
-        for (Pet pet : this.pets) {
+        for (Pet pet : this.data) {
             if (pet.getName ().equals (name)){
-                this.pets.remove (pet);
+                this.data.remove (pet);
                 return true;
             }
         }
@@ -40,7 +40,7 @@ class Clinic  {
     public
     Pet getPet (String name, String owner) {
         Pet searchPet = null;
-        for (Pet pet : this.pets) {
+        for (Pet pet : this.data) {
             if (pet.getName ().equals (name) && pet.getOwner ().equals (owner)) {
                 searchPet = pet;
             }
@@ -48,15 +48,15 @@ class Clinic  {
         return searchPet;
     }
     public Pet getOldestPet(){
-       return this.pets.stream().max (Comparator.comparing (Pet::getAge)).orElseThrow ();
+       return this.data.stream().max (Comparator.comparing (Pet::getAge)).orElseThrow ();
     }
     public int getCount(){
-        return this.pets.size ();
+        return this.data.size ();
     }
 
     public String getStatistics(){
         StringBuilder sb = new StringBuilder ("The clinic has the following patients:" + System.lineSeparator ());
-        for (Pet pet : this.pets) {
+        for (Pet pet : this.data) {
             sb.append (String.format ("%s %s%n", pet.getName (),pet.getOwner ()));
         }
         return sb.toString ();
