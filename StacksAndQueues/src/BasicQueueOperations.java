@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.Collections;
 import java.util.Scanner;
 
 public
@@ -26,6 +27,7 @@ class BasicQueueOperations {
                 System.out.println ("true");
             }else {
                 System.out.println (queue.stream ().min (Integer::compare).orElseThrow ());
+               // int min = Collections.min (queue);
             }
         }
     }

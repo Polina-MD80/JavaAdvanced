@@ -12,15 +12,14 @@ class SimpleCalculator {
         Collections.addAll (stack,inputs);
 
         while (stack.size ()>1){
+
             int first = Integer.parseInt (stack.pop ());
             String operator = stack.pop ();
             int second = Integer.parseInt (stack.pop ());
-            int result = 0;
-            if (operator.equals ("+")){
-                result = first+second;
-            }else {
-                result =first - second;
-            }
+
+            int result = operator.equals ("+") ?
+                    first + second
+                    :first - second;
             stack.push (String.valueOf (result));
         }
 
