@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ class ReverseNumbersWithStack {
         Scanner scanner = new Scanner (System.in);
         String[] input = scanner.nextLine ().split ("\\s+");
 
-        ArrayDeque<String> stack = new ArrayDeque<> ();
+        ArrayDeque<String> stack = new ArrayDeque<>();
 
 
         for (String s : input) {
