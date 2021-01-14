@@ -69,6 +69,6 @@ public class Robotics {
         long m = (beginSeconds / 60) % 60;
         long h = (beginSeconds / (60 * 60)) % 24;
         System.out.println(robot + " - " + product +
-                           String.format(" [%02d:%02d:%02d] ", h, m, s));
+                           String.format(" [%02d:%02d:%02d]", h, m, s));
     }
 }
