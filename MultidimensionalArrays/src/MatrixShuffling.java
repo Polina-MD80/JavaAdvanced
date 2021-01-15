@@ -21,18 +21,18 @@ class MatrixShuffling {
             matrix[row] = scanner.nextLine ().split ("\\s+");
         }
 
-        String command = scanner.nextLine ();
+        String command;
 
-        while (!"END".equals (command)){
+        while (!"END".equals (command=scanner.nextLine ())){
 
             String[] tokens = command.split ("\\s+");
             if (!tokens[0].equals ("swap")){
                 System.out.println ("Invalid input!");
-                command = scanner.nextLine ();
+                //command = scanner.nextLine ();
                 continue;
             }if (tokens.length!=5){
                 System.out.println ("Invalid input!");
-                command = scanner.nextLine ();
+                //command = scanner.nextLine ();
                 continue;
             }
             int row1 = Integer.parseInt (tokens[1]);
@@ -53,7 +53,7 @@ class MatrixShuffling {
                 System.out.println ("Invalid input!");
             }
 
-            command = scanner.nextLine ();
+            //command = scanner.nextLine ();
         }
     }
 

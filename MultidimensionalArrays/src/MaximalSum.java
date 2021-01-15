@@ -14,7 +14,7 @@ class MaximalSum {
             return;
         }
         
-        int matrix[][] = new int[rows][cols];
+        int[][] matrix = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
             matrix[i] = Arrays.stream (scanner.nextLine ().split ("\\s+"))
@@ -28,8 +28,8 @@ class MaximalSum {
             for (int col = 0; col < cols-2; col++) {
                 int[][] currantMatrix = new int[3][3];
                 int currantSum = 0;
-                for (int k = 0; k <= 2; k++) {
-                    for (int l = 0; l <= 2; l++) {
+                for (int k = 0; k < 3; k++) {
+                    for (int l = 0; l < 3; l++) {
                         currantMatrix[k][l] = matrix[k+row][l+col];
                         currantSum += currantMatrix[k][l];
                     }
