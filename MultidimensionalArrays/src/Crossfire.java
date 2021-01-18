@@ -1,119 +1,79 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public
 class Crossfire {
     public static
     void main (String[] args) {
         Scanner scanner = new Scanner (System.in);
-        int     n       = scanner.nextInt ();
-        n = scanner.nextInt ();
+        int     rows    = scanner.nextInt ();
+        int     cols    = scanner.nextInt ();
         scanner.nextLine ();
-        int[][] matrix = getMatrix (n);
-        String  input;
+
+        List<List<Integer>> matrix = new ArrayList<> ();
+
+        int count = 1;
+
+        for (int row = 0; row < rows; row++) {
+            matrix.add (new ArrayList<> ());
+            for (int col = 0; col < cols; col++) {
+                matrix.get (row).add (count++);
+            }
+        }
+
+        String input;
         while (!"Nuke it from orbit".equals (input = scanner.nextLine ())) {
             String[] tokens     = input.split ("\\s+");
             int      bombRow    = Integer.parseInt (tokens[0]);
             int      bombCol    = Integer.parseInt (tokens[1]);
             int      bombRadius = Integer.parseInt (tokens[2]);
 
-            matrix = bombInAction (matrix, bombRow, bombCol, bombRadius);
+
+            bombInAction (matrix, bombRow, bombCol, bombRadius);
         }
 
-        printMatrix (matrix);
+        if (!matrix.isEmpty ()) {
+            printMatrix (matrix);
+        }
     }
 
     private static
-    int[][] bombInAction (int[][] matrix, int bombRow, int bombCol, int bombRadius) {
-//        if (!indexesAreValid(matrix,bombRow,bombCol)){
-//            return matrix;
-//        }
+    void bombInAction (List<List<Integer>> matrix, int bombRow, int bombCol, int bombRadius) {
 
-        int i = bombRow;
-        for (int j = bombCol - bombRadius; j <= bombCol + bombRadius; j++) {
-            if (indexesAreValid (matrix, i, j)) {
-                matrix[i][j] = 0;
-            }
-        }
 
-        int j = bombCol;
-        for (i = bombRow - bombRadius; i <= bombRow + bombRadius; i++) {
-            if (indexesAreValid (matrix, i, j)) {
-                matrix[i][j] = 0;
-            }
-        }
-
-        matrix = resizeMatrix (matrix);
-        return matrix;
-    }
-
-    private static
-    int[][] resizeMatrix (int[][] matrix) {
-        List<List<Integer>> rows = new ArrayList<> ();
-        for (int i = 0; i < matrix.length; i++) {
-            rows.add (new ArrayList<> ());
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] != 0) {
-                    rows.get (i).add (matrix[i][j]);
+        for (int i = bombRow - bombRadius; i <= bombRow + bombRadius; i++) {
+            if (indexesAreValid (matrix, i, bombCol)) {
+                if (i != bombRow) {
+                    matrix.get (i).remove (bombCol);
                 }
             }
         }
-        for (int i = rows.size ()-1; i >= 0 ; i--) {
-            if (rows.get (i).isEmpty ()){
-                rows.remove (i);
+
+
+        for (int j = bombCol+bombRadius; j >= bombCol - bombRadius ; j--) {
+            if (indexesAreValid (matrix, bombRow, j)) {
+                matrix.get (bombRow).remove (j);
+
             }
         }
-        if (rows.isEmpty ()){
-            return new int[0][0];
+        if (matrix.get (bombRow).isEmpty ()){
+            matrix.remove (bombRow);
         }
-
-        int[][] resizedMatrix = new int[rows.size ()][];
-
-
-        for (int i = 0; i < rows.size (); i++) {
-            resizedMatrix[i] = new int[rows.get (i).size ()];
-        }
-        for (int i = 0; i < resizedMatrix.length; i++) {
-            for (int j = 0; j < resizedMatrix[i].length; j++) {
-                resizedMatrix[i][j] = rows.get (i).get (j);
-            }
-        }
-        matrix = resizedMatrix;
-        return matrix;
     }
 
+
     private static
-    boolean indexesAreValid (int[][] matrix, int row, int col) {
-        if (row < matrix.length && row >= 0 && col >= 0 && col < matrix[row].length) {
-            return true;
-        }
-        return false;
+    boolean indexesAreValid (List<List<Integer>> matrix, int row, int col) {
+        return row < matrix.size () && row >= 0 && col >= 0 && col < matrix.get (row).size ();
     }
 
-    private static
-    int[][] getMatrix (int n) {
-        int[][] matrix = new int[n][n];
-        int     number = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                matrix[i][j] = number;
-                number++;
-            }
-        }
-
-        return matrix;
-    }
 
     private static
-    void printMatrix (int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] != 0) {
-
-                    System.out.print (matrix[i][j] + " ");
-                }
+    void printMatrix (List<List<Integer>> matrix) {
+        for (int i = 0; i < matrix.size (); i++) {
+            for (int j = 0; j < matrix.get (i).size (); j++) {
+                System.out.print (matrix.get (i).get (j) + " ");
             }
             System.out.println ();
         }
