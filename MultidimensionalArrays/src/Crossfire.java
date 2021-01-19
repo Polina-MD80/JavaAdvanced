@@ -57,9 +57,7 @@ class Crossfire {
 
             }
         }
-        if (matrix.get (bombRow).isEmpty ()){
-            matrix.remove (bombRow);
-        }
+        matrix.removeIf (List::isEmpty);
     }
 
 
