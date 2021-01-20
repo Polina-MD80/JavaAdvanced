@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -13,9 +14,7 @@ class PeriodicTable {
 
         for (int i = 0; i < n; i++) {
             String[] line = scanner.nextLine ().split ("\\s+");
-            for (int j = 0; j < line.length; j++) {
-                elements.add (line[j]);
-            }
+            elements.addAll (Arrays.asList (line));
         }
         elements.forEach (e-> System.out.print (e+" "));
     }

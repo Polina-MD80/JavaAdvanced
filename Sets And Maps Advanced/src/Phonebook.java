@@ -10,6 +10,7 @@ class Phonebook {
     void main (String[] args) {
         Scanner             scanner   = new Scanner (System.in);
         Pattern             pattern   = Pattern.compile ("(?<name>[A-z()]+)[-](?<number>[\\W\\d]+)");
+        //  може и със сплит по -, но за упр. с регекс
         Map<String, String> phonebook = new HashMap<> ();
 
         String input = scanner.nextLine ();
