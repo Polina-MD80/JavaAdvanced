@@ -14,7 +14,7 @@ class SerbianUnleashed {
 
         Map<String, Map<String, Integer>> places = new LinkedHashMap<> ();
 
-        Pattern pattern = Pattern.compile ("^(?<name>([A-Z][a-z]+[\\s]){1,3})@(?<place>([A-Z][a-z]+[\\s]){1,3})(?<price>\\d+)[\\s](?<count>\\d+)$");
+        Pattern pattern = Pattern.compile ("^(?<name>([A-z]+[\\s]){1,3})@(?<place>([A-z]+[\\s]){1,3})(?<price>\\d+)[\\s](?<count>\\d+)$");
         String input;
         while (!"End".equals (input = scanner.nextLine ())){
             Matcher matcher = pattern.matcher (input);
