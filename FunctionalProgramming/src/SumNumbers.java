@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 public
-class SumNumners {
+class SumNumbers {
     public static
     void main (String[] args) {
         Scanner scanner = new Scanner (System.in);
