@@ -6,7 +6,7 @@ public
 class Demo {
     public static
     void main (String[] args) throws IOException {
-        String path = "C:\\Users\\Poli_ip\\Dropbox\\My PC (LAPTOP-F54G9BS7)\\Documents\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
+        String path = "C:\\Users\\Poli_ip\\Dropbox\\My PC (LAPTOP-F54G9BS7)\\Documents\\SoftUniJavaAdvanced\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\04. Java-Advanced-Files-and-Streams-Exercises-Resources\\input.txt";
 
         FileInputStream  fileInputStream = new FileInputStream (path);
 
