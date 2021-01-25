@@ -16,7 +16,7 @@ class FindEvensOrOdds {
 
         Predicate<Integer> filtration = getFilteredIntegers (criteria);
         Consumer<Integer> printNum = p-> System.out.print (p + " ");
-        IntStream.range (numbers[0],numbers[1] + 1).boxed ().filter (filtration)
+        IntStream.rangeClosed (numbers[0],numbers[1]).boxed ().filter (filtration)
                 .forEach (printNum);
     }
 
