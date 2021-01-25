@@ -11,6 +11,7 @@ class PredicateForNames {
         Scanner scanner = new Scanner (System.in);
         int n = Integer.parseInt (scanner.nextLine ());
         List<String> names = Arrays.stream (scanner.nextLine ().split ("\\s+")).collect(Collectors.toList());
+
         Predicate<String> checkLength = name -> name.length () <= n;
 
         names.stream ().filter (checkLength).forEach (System.out::println);

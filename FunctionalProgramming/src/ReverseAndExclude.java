@@ -16,11 +16,11 @@ class ReverseAndExclude {
                 .map (Integer::parseInt)
                 .collect (Collectors.toList ());
         Integer                       n      = Integer.parseInt (scanner.nextLine ());
-        BiFunction<Integer,Integer, Integer> divide = (a,b) -> a%b;
-        Predicate<Integer> checkIfDivisible = num -> divide.apply (num,n)!=0;
+
+        Predicate<Integer> checkIfDivisible = num -> num%n==0;
         Consumer<List<Integer>> printer = nums-> nums.forEach (num-> System.out.print (num+" "));
 
-        numbers = numbers.stream ().filter (checkIfDivisible).collect (Collectors.toList ());
+        numbers.removeIf (checkIfDivisible);
         Collections.reverse (numbers);
         printer.accept (numbers);
     }
