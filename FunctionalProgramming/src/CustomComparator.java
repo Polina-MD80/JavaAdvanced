@@ -1,42 +1,28 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public
 class CustomComparator {
-    public static class ComparatorByNaturalOrder implements Comparator<Integer>{
-
-        @Override
-        public
-        int compare (Integer o1, Integer o2) {
-            return  Integer.compare (o1,o2);
-        }
-    }
-    public static
-    class ComparatorByEvenOdd implements Comparator<Integer>{
-
-        @Override
-        public
-        int compare (Integer o1, Integer o2) {
-            return Integer.compare (Math.abs (o1%2),Math.abs (o2%2));
-        }
-    }
     public static
     void main (String[] args) {
+
         Scanner scanner = new Scanner (System.in);
 
-        int[] numbers = Arrays.stream(scanner.nextLine ().split ("\\s+")).mapToInt (Integer::parseInt).toArray();
-            Integer[] integers = new Integer[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            integers[i] = numbers[i];
-        }
+        List<Integer> numbers = Arrays.stream (scanner.nextLine ().split ("\\s+")).map (Integer::parseInt).collect (Collectors.toList ());
+
+        Comparator<Integer> comparator = (a, b) -> {
+            if (a % 2 == 0 && b % 2 == 0) {
+                return a.compareTo (b);
+            } else if (a % 2 == 0) {
+                return -1;
+            } else if (b % 2 == 0) {
+                return 1;
+            } else return a.compareTo (b);
+        };
+
+        numbers.sort (comparator);
+        numbers.forEach (n -> System.out.print (n + " "));
 
 
-       // Arrays.stream (numbers).boxed ().sorted (new ComparatorByEvenOdd()).forEach (e-> System.out.print (e + " "));
-        Arrays.sort (integers,new ComparatorByNaturalOrder ());
-        Arrays.sort (integers,new ComparatorByEvenOdd ());
-        Arrays.stream (integers).forEach (e-> System.out.print (e + " "));
     }
 }
