@@ -35,9 +35,6 @@ class CountCharacterTypes {
             }
 
         }
-        //
-        //Consonants: 72
-        //Punctuation: 6
 
         writer.println ("Vowels: " + vowels);
         writer.println ("Consonants: " + consonants);
