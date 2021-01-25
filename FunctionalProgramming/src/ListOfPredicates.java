@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
@@ -14,9 +13,9 @@ class ListOfPredicates {
 
         Predicate<Integer> divisible = n -> {
             boolean isDivisible = true;
-            for (int i = 0; i < dividers.length; i++) {
-                if (n%dividers[i]!=0){
-                    isDivisible=false;
+            for (int divider : dividers) {
+                if (n % divider != 0) {
+                    isDivisible = false;
                     break;
                 }
             }
