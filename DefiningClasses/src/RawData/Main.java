@@ -48,8 +48,9 @@ class Main {
                 Predicate<List<Tire>> predicate = tires -> {
                    boolean isLowOnPressure = false;
                     for (Tire tire : tires) {
-                        if (tire.getPressure ()<1){
+                        if (tire.getPressure () < 1) {
                             isLowOnPressure = true;
+                            break;
                         }
                     }
                     return isLowOnPressure;
