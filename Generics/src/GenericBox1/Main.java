@@ -1,5 +1,4 @@
-package GenericBoxОfInteger;
-
+package GenericBox1;
 
 import java.util.Scanner;
 
@@ -12,11 +11,11 @@ class Main {
 
         int n = Integer.parseInt (scanner.nextLine ());
 
-        Box<Integer> box = new Box<> ();
+        Box<String> box = new Box<> ();
 
         for (int i = 0; i < n; i++) {
-            Integer integer = Integer.parseInt (scanner.nextLine ());
-            box.addElement (integer);
+            String string = scanner.nextLine ();
+            box.addElement (string);
         }
         System.out.println (box);
     }

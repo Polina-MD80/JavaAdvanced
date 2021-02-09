@@ -1,5 +1,6 @@
 package GenericBox;
 
+
 import java.util.Scanner;
 
 public
@@ -11,11 +12,11 @@ class Main {
 
         int n = Integer.parseInt (scanner.nextLine ());
 
-        Box<String> box = new Box<> ();
+        Box<Integer> box = new Box<> ();
 
         for (int i = 0; i < n; i++) {
-            String string = scanner.nextLine ();
-            box.addElement (string);
+            Integer integer = Integer.parseInt (scanner.nextLine ());
+            box.addElement (integer);
         }
         System.out.println (box);
     }

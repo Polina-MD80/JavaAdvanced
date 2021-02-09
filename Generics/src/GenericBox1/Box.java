@@ -1,4 +1,4 @@
-package GenericBox;
+package GenericBox1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ class Box<T>{
     String toString () {
         StringBuilder sb = new StringBuilder ();
         for (T value : values) {
-            sb.append (String.format ("%s: %s%n", value.getClass ().getName (),value));
+           sb.append (String.format ("%s: %s%n", value.getClass ().getName (),value));
         }
         return sb.toString ();
     }
