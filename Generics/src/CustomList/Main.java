@@ -1,5 +1,6 @@
 package CustomList;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public
@@ -44,10 +45,13 @@ class Main {
                     System.out.println (customList.getMin ());
                     break;
                 case "Print":
-                    System.out.println (customList);
+                   //System.out.println (customList);
+
+                    customList.iterator ().forEachRemaining (System.out::println);
+
                     break;
                 case "Sort":
-                    Sorter.sort (customList);break;
+                   Sorter.sort (customList);break;
 
                 default: {
                     System.out.println ("Invalid command");
