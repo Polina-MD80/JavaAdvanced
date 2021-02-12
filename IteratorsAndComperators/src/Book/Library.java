@@ -4,21 +4,27 @@ import java.util.Iterator;
 import java.util.List;
 
 public
-class Library implements Iterable<Book>{
+class Library implements Iterable<Book> {
     private Book[] books;
-    public Library(Book... book){
+
+    public
+    Library (Book... book) {
         this.books = book;
     }
 
-    private  class LibIterator implements Iterator<Book>{
+    private
+    class LibIterator implements Iterator<Book> {
         private int index;
-        public LibIterator(){
-            this.index=0;
+
+        public
+        LibIterator () {
+            this.index = 0;
         }
+
         @Override
         public
         boolean hasNext () {
-            return this.index< books.length;
+            return this.index < books.length;
         }
 
         @Override
@@ -27,10 +33,11 @@ class Library implements Iterable<Book>{
             return books[index++];
         }
     }
+
     @Override
     public
     Iterator<Book> iterator () {
 
-        return new LibIterator();
+        return new LibIterator ();
     }
 }

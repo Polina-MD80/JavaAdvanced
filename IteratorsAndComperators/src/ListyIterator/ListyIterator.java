@@ -34,7 +34,9 @@ class ListyIterator implements Iterable<String> {
             return this.data.get (this.index);
         }
     }
-    public boolean hasNext(){
+
+    public
+    boolean hasNext () {
         return this.index != -1 && this.index < this.data.size () - 1;
     }
 
@@ -43,10 +45,11 @@ class ListyIterator implements Iterable<String> {
     Iterator<String> iterator () {
         return new Iterator<String> () {
             private int index = 0;
+
             @Override
             public
             boolean hasNext () {
-                    return this.index <= data.size ()-1;
+                return this.index <= data.size () - 1;
             }
 
             @Override
