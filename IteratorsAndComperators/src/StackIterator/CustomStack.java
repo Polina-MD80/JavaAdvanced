@@ -7,8 +7,8 @@ import java.util.List;
 public
 class CustomStack implements Iterable<Integer> {
     private List<Integer> stack;
-    private static int index = -1;
-    private static int size = 0;
+    private  int index = -1;
+    private  int size = 0;
 
     public
     CustomStack () {
