@@ -77,9 +77,11 @@ class Bomb {
 
     private static
     void printDeque (ArrayDeque<Integer> effects) {
+
         while (effects.size () > 1){
             System.out.print (effects.poll () + ", ");
         }
+
         System.out.println(effects.poll ());
     }
 }
