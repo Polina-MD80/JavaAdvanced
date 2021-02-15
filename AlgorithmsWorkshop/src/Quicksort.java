@@ -10,22 +10,20 @@ class Quicksort {
         int[] array = Arrays.stream (scanner.nextLine ().split ("\\s+")).mapToInt (Integer::parseInt).toArray ();
         int l = 0;
         int r = array.length -1;
-        array = quickSort (array,l,r);
+        quickSort (array, l, r);
         for (int j : array) {
             System.out.print (j + " ");
         }
     }
 
     private static
-    int[] quickSort (int[] array, int l, int r) {
+    void quickSort (int[] array, int l, int r) {
         if (l>=r){
-            return array;
+            return;
         }
        int pi = partition(array,l,r);
         quickSort (array,l,pi-1);
         quickSort (array,pi+1,r);
-
-        return array;
 
 
     }
