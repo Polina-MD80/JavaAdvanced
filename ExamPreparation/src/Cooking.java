@@ -26,7 +26,6 @@ class Cooking {
             int ingredient = ingredientsStack.pop ();
 
             int sum = liquid + ingredient;
-
             switch (sum) {
                 case 25:
                     bread++;
