@@ -56,6 +56,8 @@ class Main {
                 }
             }
         }
+        System.out.println ();
+        String out = people.get (thePerson).getParentsToString ();
 
         System.out.println (people.get (thePerson).getParentsToString ());
         System.out.println (people.get (thePerson).getChildrenToString ());
