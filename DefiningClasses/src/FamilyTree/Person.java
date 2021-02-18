@@ -10,6 +10,12 @@ class Person {
     }
 
     public
+    Person (String name, String dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public
     void setName (String name) {
         this.name = name;
     }
@@ -27,5 +33,12 @@ class Person {
     public
     void setDateOfBirth (String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public
+    String toString () {
+        return String.format ("%s %s",this
+        .name,this.dateOfBirth);
     }
 }
