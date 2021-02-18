@@ -68,16 +68,18 @@ class Main {
         Person person = checkForAlreadyCreatedPerson (personName);
         if (person != null) {
             person.setDateOfBirth (personDateOfBirth);
-        } else {
-            person = checkForAlreadyCreatedPerson (personDateOfBirth);
-            if (person != null) {
-                person.setName (personName);
-            }else {
-                person = new Person (personName,personDateOfBirth);
-                people.put (person,new Tree (person));
-            }
+        }
+        person = checkForAlreadyCreatedPerson (personDateOfBirth);
+        if (person != null) {
+            person.setName (personName);
+        }
+        if (person == null) {
+            person = new Person (personName, personDateOfBirth);
+            people.put (person, new Tree (person));
         }
     }
+
+
 
 
     private static
